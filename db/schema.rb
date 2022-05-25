@@ -12,9 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_07_16_195531) do
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", charset: "utf8", force: :cascade do |t|
     t.string "name"
-    t.decimal "price"
+    t.decimal "price", precision: 10
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
