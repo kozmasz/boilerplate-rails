@@ -69,3 +69,36 @@ Otherwise:
 ```shell
 brew install mysql56
 ```
+
+## Set `config/database.yml like this
+
+I used MySql for this task, but you can easily change to Postgres as well.
+````
+
+development: &defaults
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: boilerplate_development
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+test:
+  <<: *defaults
+  database: boilerplate_development_test
+production:
+  <<: *defaults
+  database: boilerplate_development_prod
+  
+  ````
+  
+
+
+## After these settings
+
+`bundle exec rails db:create`\
+`bundle exec rails db:migrate`
+
+
+fdbdbdbdbdbs
