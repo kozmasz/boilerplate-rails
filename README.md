@@ -101,4 +101,7 @@ production:
 `bundle exec rails db:migrate`
 
 
-fdbdbdbdbdbs
+## Getting all currency
+
+Open a Rails console and type `Product.list` or type in to the browser the following url `http://localhost:3000/products`
+
