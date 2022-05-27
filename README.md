@@ -97,11 +97,39 @@ production:
 
 ## After these settings
 
-`bundle exec rails db:create`\
-`bundle exec rails db:migrate`
+### Get your API token
 
+1) Visit `https://apilayer.com/`
+2) Register to the page
+3) Click the purple icon
+4) Choose account
+5) Copy to clipboard!
+6) Save this token to the safe place.
+
+### Install your local rails environment
+
+`bundle exec rails db:create`\
+`bundle exec rails db:migrate`\
+`bundle exec rails db:seed`
 
 ## Getting all currency
 
-Open a Rails console and type `Product.list` or type in to the browser the following url `http://localhost:3000/products`
+Open a Rails console and type `Product.list(api_key)` or type in to the browser the following url `http://localhost:3000/products?api_key=YOUR_API_KEY`.
 
+The `url` will returns with the all products as a json.
+
+| column | description |
+|  ---   |     ---     |
+| name        | the name of the product               |
+| amount      | amount of the product                 |
+| description | description                           |
+| currency    | Currency of the product. eg. HUF      |
+| show count  | how many times the product has opened |
+
+If you use this `url`: `http://localhost:3000/products/:id` then the `show_count` should be incremented and it returns with the same json.
+If you use a non-exist `id` then you will get an error.
+
+## Converting currencies
+
+If you use this `url` :\
+`http://localhost:3000/products/convert?api_key=YOUR_API_KEY&from=FROM_CURRENCY&to=TO_CURRENCY&amount_param=AMOUNT` then it should create a new record with the correct data.

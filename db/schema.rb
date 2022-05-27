@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_16_195531) do
+ActiveRecord::Schema.define(version: 2022_05_27_103637) do
 
   create_table "products", charset: "utf8", force: :cascade do |t|
     t.string "name"
-    t.decimal "price", precision: 10
+    t.decimal "amount", precision: 10
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "currency"
+    t.integer "show_count", default: 0
   end
 
 end
